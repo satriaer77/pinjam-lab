@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>Login</class>
+ <widget class="QDialog" name="Login">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,90 +11,210 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
-   <widget class="QFrame" name="frame">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>40</y>
-      <width>411</width>
-      <height>381</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>40</y>
-       <width>91</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Source Sans Pro</family>
-       <pointsize>18</pointsize>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>LOGIN</string>
-     </property>
-    </widget>
-    <widget class="QTextEdit" name="textEdit">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>110</y>
-       <width>241</width>
-       <height>31</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit">
-     <property name="geometry">
-      <rect>
-       <x>92</x>
-       <y>170</y>
-       <width>241</width>
-       <height>25</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="loginButton">
-     <property name="geometry">
-      <rect>
-       <x>100</x>
-       <y>230</y>
-       <width>221</width>
-       <height>25</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Login</string>
-     </property>
-    </widget>
-   </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
+  <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>22</height>
+     <x>190</x>
+     <y>100</y>
+     <width>421</width>
+     <height>391</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-color: rgb(48, 48, 48);</string>
+   </property>
+   <property name="inputMethodHints">
+    <set>Qt::ImhNone</set>
+   </property>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>133</x>
+      <y>60</y>
+      <width>155</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="whatsThis">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;zx&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#label{
+text-align:ceqconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(255, 255, 255, 255), stop:0.373979 rgba(255, 255, 255, 255), stop:0.373991 rgba(33, 30, 255, 255), stop:0.624018 rgba(33, 30, 255, 255), stop:0.624043 rgba(255, 0, 0, 255), stop:1 rgba(255, 0, 0, 255))nter;
+color:black;
+}</string>
+    </property>
+    <property name="text">
+     <string>LOGIN ADMIN</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>120</y>
+      <width>71</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Username</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>200</y>
+      <width>66</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Password</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="password">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>230</y>
+      <width>261</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnLogin">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>290</y>
+      <width>101</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="inputMethodHints">
+     <set>Qt::ImhNone</set>
+    </property>
+    <property name="text">
+     <string>Login</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>40</width>
+      <height>40</height>
+     </size>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="autoRepeat">
+     <bool>false</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>false</bool>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="username">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>150</y>
+      <width>261</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Normal</enum>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+    <property name="dragEnabled">
+     <bool>false</bool>
+    </property>
+    <property name="placeholderText">
+     <string/>
+    </property>
+    <property name="cursorMoveStyle">
+     <enum>Qt::VisualMoveStyle</enum>
+    </property>
+    <property name="clearButtonEnabled">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelLogin">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>360</y>
+      <width>63</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>Status</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>
