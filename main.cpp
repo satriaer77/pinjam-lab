@@ -3,6 +3,8 @@
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>
+#include "UserModel.hpp"
+
 
 int main(int argc, char *argv[])
 {
@@ -20,7 +22,13 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
 
+    User userA;
+    userA.setUsername("jaka");
+    userA.setPassword("jaka123");
 
+    UserModel uModel;
+
+    uModel.insertUser(userA);
 
     return a.exec();
 }

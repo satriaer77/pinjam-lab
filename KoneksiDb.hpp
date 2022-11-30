@@ -10,15 +10,16 @@ using namespace std;
 class KoneksiDb
 {
 public :
-    QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
 
+    QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
     void koneksiDb()
     {
-        db.setHostName("localhost");
-        db.setDatabaseName("pbo_lab");
-        db.setUserName("root");
-        db.setPassword("234iwuope");
-        bool ok = db.open();
+
+        this->db.setHostName("localhost");
+        this->db.setDatabaseName("pbo_lab");
+        this->db.setUserName("root");
+        this->db.setPassword("234iwuope");
+        bool ok = this->db.open();
 
         if(ok)
         {
@@ -29,6 +30,11 @@ public :
             cout<<"Koneksi Gagal";
         }
 
+    }
+
+    void closeKoneksi()
+    {
+        this->db.close();
     }
 
 };

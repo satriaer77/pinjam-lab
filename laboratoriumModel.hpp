@@ -3,12 +3,17 @@
 
 #include <iostream>
 #include "KoneksiDb.hpp"
+#include <QSqlQuery>
+#include "Peminjaman.hpp"
 
 class LaboratoriumModel
 {
-private :
-    int id_lab;
-    string nama_lab;
+public :
+    bool pinjamLab(Peminjaman pinjam)
+    {
+         QSqlQuery query;
+         query.prepare("INSERT INTO user (username,password) VALUES(:username,:password)")
+    }
 
 };
 
