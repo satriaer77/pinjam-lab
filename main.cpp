@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 
     UserModel uModel;
 
-    cout<<uModel.insertUser(userA);
+//    cout<<uModel.insertUser(userA);
 
     LaboratoriumModel labMdl;
     labMdl.getLaboratoriumData();

@@ -11,7 +11,9 @@ CONFIG += c++17
 SOURCES += \
     laboratorium.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    homepage.cpp \
+    login.cpp
 
 HEADERS += \
     Auth.hpp \
@@ -22,13 +24,17 @@ HEADERS += \
     UserModel.hpp \
     laboratoriumModel.hpp \
     mainwindow.h \
-    peminjamanModel.hpp
+    peminjamanModel.hpp \
+    homepage.h \
+    login.h
 
 FORMS += \
     daftarPeminjamanLab.ui \
     login.ui \
     mainwindow.ui \
-    manajemenPeminjaman.ui
+    manajemenPeminjaman.ui \
+    homepage.ui \
+    login.ui
 
 TRANSLATIONS += \
     peminjamanLab_en_GB.ts
