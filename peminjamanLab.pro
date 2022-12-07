@@ -26,7 +26,8 @@ HEADERS += \
     mainwindow.h \
     peminjamanModel.hpp \
     homepage.h \
-    login.h
+    login.h \
+    database.h
 
 FORMS += \
     daftarPeminjamanLab.ui \
