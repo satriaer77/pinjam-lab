@@ -93,7 +93,10 @@ public:
                                        "jam_end='"+jamEnd+":00',"
                                        "keperluan='"+keperluan+"' WHERE id_peminjaman="+idPeminjaman);
         cout<<queryInsert;
-
+        if(!queryInsert)
+        {
+            query->lastError();
+        }
         koneksi.closeKoneksi();
         return queryInsert;
     }

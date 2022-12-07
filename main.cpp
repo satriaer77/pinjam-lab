@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
     Peminjaman pjm;
 //    pjm.setnamaPeminjam("sss");
 //    pjm.setnimPeminjam("32");
-//    pjm.setTanggal("2022-02-22");
+    pjm.setTanggal("2022-02-22");
 //    pjm.setidStatus(2);
 //    pjm.setidLab(4);
 //    pjm.setjamStart("09:30");
@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
 
 
 
-    //Edit
+//    Edit
 
     pjm.setnamaPeminjam("George");
     pjm.setnimPeminjam("21041110043");
