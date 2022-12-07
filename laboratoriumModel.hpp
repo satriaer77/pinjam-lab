@@ -4,16 +4,23 @@
 #include <iostream>
 #include "KoneksiDb.hpp"
 #include <QSqlQuery>
-#include "Peminjaman.hpp"
+#include "Laboratorium.hpp"
+using namespace std;
+
 
 class LaboratoriumModel
 {
-public :
-    bool pinjamLab(Peminjaman pinjam)
+public:
+    QSqlQuery *getData;
+    void getLaboratoriumData()
     {
-         QSqlQuery query;
-         query.prepare("INSERT INTO user (username,password) VALUES(:username,:password)")
+        KoneksiDb koneksi;
+        koneksi.koneksiDb();
+        getData = new QSqlQuery(koneksi.db);
+        getData->exec("SELECT * FROM laboratorium");
+
     }
+
 
 };
 

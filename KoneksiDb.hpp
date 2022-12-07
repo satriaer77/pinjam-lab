@@ -16,7 +16,7 @@ public :
     {
 
         this->db.setHostName("localhost");
-        this->db.setDatabaseName("pbo_lab");
+        this->db.setDatabaseName("pinjam_lab");
         this->db.setUserName("root");
         this->db.setPassword("234iwuope");
         bool ok = this->db.open();

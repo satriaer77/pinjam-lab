@@ -6,6 +6,7 @@
 #include <QSqlQuery>
 #include "User.hpp"
 #include <QVariant>
+using namespace std;
 
 
 class UserModel
@@ -15,14 +16,29 @@ public :
     {
          KoneksiDb koneksi;
          koneksi.koneksiDb();
-//         auto query = new QSqlQuery(koneksi.db);
-//         query->prepare("INSERT INTO user(username,password) VALUES(:username,:password)");
-//         query->bindValue(":username","as");
-//         query->bindValue(":password","ss");
-         koneksi.db.exec("INSERT INTO user(username,password) VALUES(asdasd,asda)");
+         auto query = new QSqlQuery(koneksi.db);
+         QString username = QString::fromStdString(user.getUsername());
+         QString password = QString::fromStdString(user.getPassword());
+
+         bool queryInsert = query->exec("INSERT INTO user(username,password) VALUES('"+username+"','"+password+"')");
 
          koneksi.closeKoneksi();
+         return queryInsert;
 
+    }
+
+    bool updateUser(User user)
+    {
+        KoneksiDb koneksi;
+        koneksi.koneksiDb();
+        auto query = new QSqlQuery(koneksi.db);
+        QString username = QString::fromStdString(user.getUsername());
+        QString password = QString::fromStdString(user.getPassword());
+
+
+        bool queryUpdate = query->exec("UPDATE user SET username='"+username+"' WHERE id_user="+user.getidUser()+" ");
+
+        return queryUpdate;
     }
 
 };

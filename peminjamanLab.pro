@@ -16,12 +16,13 @@ SOURCES += \
 HEADERS += \
     Auth.hpp \
     KoneksiDb.hpp \
+    Laboratorium.hpp \
     Peminjaman.hpp \
     User.hpp \
     UserModel.hpp \
-    laboratorium.h \
     laboratoriumModel.hpp \
-    mainwindow.h
+    mainwindow.h \
+    peminjamanModel.hpp
 
 FORMS += \
     daftarPeminjamanLab.ui \

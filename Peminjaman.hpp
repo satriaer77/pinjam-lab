@@ -6,14 +6,14 @@ using namespace std;
 class Peminjaman
 {
 private :
-    int idPeminjam,idStatus,idLab;
+    int idPeminjaman,idStatus,idLab;
     string namaPeminjam,nimPeminjam, keperluan, tanggal, jamStart,jamEnd;
 
 
 public :
-    int getidPeminjam()
+    int getidPeminjaman()
     {
-        return this->idPeminjam;
+        return this->idPeminjaman;
     }
     int getidStatus()
     {
@@ -50,8 +50,43 @@ public :
 
 
 
-    //Set Obj
-
-
+    //Set Attributes
+    void setidPeminjaman(int idPjm)
+    {
+        this->idPeminjaman = idPjm;
+    }
+    void setidStatus(int idSts)
+    {
+        this->idStatus = idSts;
+    }
+    void setidLab(int idLb)
+    {
+        this->idLab = idLb;
+    }
+    void setnamaPeminjam(string namaPjm)
+    {
+        this->namaPeminjam = namaPjm;
+    }
+    void setnimPeminjam(string nimPjm)
+    {
+        this->nimPeminjam = nimPjm;
+    }
+    void setTanggal(string tgl)
+    {
+        this->tanggal = tgl;
+    }
+    void setjamStart(string jamSt)
+    {
+        this->jamStart = jamSt;
+    }
+    void setjamEnd(string jamEd)
+    {
+        this->jamEnd = jamEd;
+    }
+    void setKeperluan(string perlu)
+    {
+        this->keperluan = perlu;
+    }
+};
 
 #endif // PEMINJAMAN_HPP
