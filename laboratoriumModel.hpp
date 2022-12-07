@@ -18,7 +18,6 @@ public:
         koneksi.koneksiDb();
         getData = new QSqlQuery(koneksi.db);
         getData->exec("SELECT * FROM laboratorium");
-
     }
 
 

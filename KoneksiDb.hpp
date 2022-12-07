@@ -23,11 +23,11 @@ public :
 
         if(ok)
         {
-            cout<<"Koneksi Berhasil";
+            cout<<"Koneksi Berhasil"<<endl;
         }
         else
         {
-            cout<<"Koneksi Gagal";
+            cout<<"Koneksi Gagal"<<endl;
         }
 
     }

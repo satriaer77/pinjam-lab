@@ -17,10 +17,14 @@ class PeminjamanModel
 {
 public:
     QSqlQuery *peminjamanModel;
+
+
+    //==== CRUD Peminjaman ====//
+
+    //INSERT//
     bool pinjamLab(Peminjaman peminjaman)
     {
-//        int idPeminjaman,idStatus,idLab;
-//        string namaPeminjam,nimPeminjam, keperluan, tanggal, jamStart,jamEnd;
+
         KoneksiDb koneksi;
         koneksi.koneksiDb();
         auto query = new QSqlQuery(koneksi.db);
@@ -49,23 +53,9 @@ public:
         koneksi.closeKoneksi();
         return queryInsert;
     }
-
-    bool accAdmin(Peminjaman peminjaman)
-    {
-
-        KoneksiDb koneksi;
-        koneksi.koneksiDb();
-        auto query = new QSqlQuery(koneksi.db);
-
-        QString idPeminjaman = QString::fromStdString(to_string(peminjaman.getidPeminjaman()));
+    //---------//
 
 
-        bool queryUpdate = query->exec("UPDATE peminjaman SET id_status=1 WHERE id_peminjaman="+idPeminjaman);
-        cout<<queryUpdate;
-
-        koneksi.closeKoneksi();
-        return queryUpdate;
-    }
 
     bool editPinjamLab(Peminjaman peminjaman)
     {
@@ -93,14 +83,13 @@ public:
                                        "jam_end='"+jamEnd+":00',"
                                        "keperluan='"+keperluan+"' WHERE id_peminjaman="+idPeminjaman);
         cout<<queryInsert;
-        if(!queryInsert)
-        {
-            query->lastError();
-        }
+
         koneksi.closeKoneksi();
         return queryInsert;
     }
 
+
+    //DELETE//
     bool hapusPeminjaman(Peminjaman peminjaman)
     {
 
@@ -117,15 +106,37 @@ public:
         koneksi.closeKoneksi();
         return queryUpdate;
     }
-
-//    bool editPinjamLab(Peminjaman peminjaman)
-//    {
-//        return queryEdit;
-//    }
+    //------//
 
 
+    //ACC Admin//
+    bool accAdmin(Peminjaman peminjaman)
+    {
+
+        KoneksiDb koneksi;
+        koneksi.koneksiDb();
+        auto query = new QSqlQuery(koneksi.db);
+
+        QString idPeminjaman = QString::fromStdString(to_string(peminjaman.getidPeminjaman()));
 
 
+        bool queryUpdate = query->exec("UPDATE peminjaman SET id_status=1 WHERE id_peminjaman="+idPeminjaman);
+        cout<<queryUpdate;
+
+        koneksi.closeKoneksi();
+        return queryUpdate;
+    }
+    //------//
+
+
+
+
+
+
+
+    //--------- GET DATA METHOD ----------//
+
+    //Get ALL Data Peminjaman
     void getDataPeminjaman()
     {
         KoneksiDb koneksi;
@@ -133,7 +144,23 @@ public:
         peminjamanModel = new QSqlQuery(koneksi.db);
         peminjamanModel->exec("SELECT * FROM peminjaman");
     }
+    //========================
 
+
+    //Get Data Peminjaman
+    void get1DataPeminjaman(int idPjm)
+    {
+        KoneksiDb koneksi;
+        koneksi.koneksiDb();
+        QString idPeminjaman      = QString::fromStdString(to_string(idPjm));
+
+        peminjamanModel = new QSqlQuery(koneksi.db);
+        peminjamanModel->exec("SELECT * FROM peminjaman WHERE id_lab='"+idPeminjaman+"'");
+    }
+     //========================
+
+
+    //Get ALL Data Peminjaman With Date Filter (using tanggal)
     void getDataPeminjamanAsDate(string tgl)
     {
         KoneksiDb koneksi;
@@ -143,6 +170,62 @@ public:
         peminjamanModel = new QSqlQuery(koneksi.db);
         peminjamanModel->exec("SELECT * FROM peminjaman WHERE tanggal='"+tanggal+"'");
     }
+     //========================
+
+
+    //Get ALL Data Peminjaman With Lab Filter (using idLab)
+    void getDataPeminjamanAsLab(int iLab)
+    {
+        KoneksiDb koneksi;
+        koneksi.koneksiDb();
+        QString idLab      = QString::fromStdString(to_string(iLab));
+
+        peminjamanModel = new QSqlQuery(koneksi.db);
+        peminjamanModel->exec("SELECT * FROM peminjaman WHERE id_lab='"+idLab+"'");
+    }
+     //========================
+
+
+    //Get ALL Data Peminjaman With Lab And Date Filter (using idLab)
+    void getDataPeminjamanAsLabAndDate(int iLab, string tgl)
+    {
+        KoneksiDb koneksi;
+        koneksi.koneksiDb();
+        QString idLab      = QString::fromStdString(to_string(iLab));
+        QString tanggal      = QString::fromStdString(tgl);
+
+        peminjamanModel = new QSqlQuery(koneksi.db);
+        peminjamanModel->exec("SELECT * FROM peminjaman WHERE id_lab='"+idLab+"' and tanggal='"+tanggal+"'");
+    }
+     //========================
+
+
+    //Get ALL Data Peminjaman Where not accepted with laboratorium and tanggal filter
+    void getDataPeminjamanAsLabAndDateNotAcc(int iLab, string tgl)
+    {
+        KoneksiDb koneksi;
+        koneksi.koneksiDb();
+        QString idLab    = QString::fromStdString(to_string(iLab));
+        QString tanggal  = QString::fromStdString(tgl);
+
+        peminjamanModel = new QSqlQuery(koneksi.db);
+        peminjamanModel->exec("SELECT * FROM peminjaman WHERE id_lab='"+idLab+"' and tanggal='"+tanggal+"' and id_status=2");
+    }
+     //========================
+
+
+    //Get ALL Data Peminjaman Where accepted with laboratorium and tanggal filter
+    void getDataPeminjamanAsLabAndDateAcc(int iLab, string tgl)
+    {
+        KoneksiDb koneksi;
+        koneksi.koneksiDb();
+        QString idLab    = QString::fromStdString(to_string(iLab));
+        QString tanggal  = QString::fromStdString(tgl);
+
+        peminjamanModel = new QSqlQuery(koneksi.db);
+        peminjamanModel->exec("SELECT * FROM peminjaman WHERE id_lab='"+idLab+"' and tanggal='"+tanggal+"' and id_status=1");
+    }
+     //========================
 };
 
 #endif // PEMINJAMANMODEL_HPP
