@@ -1,8 +1,6 @@
-#include "mainwindow.h"
+#include "mainwindow.h""
 #include "ui_mainwindow.h"
-
-
-
+#include "login.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -15,3 +13,10 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::on_pushButton_clicked()
+{
+    close();
+    Login login;
+    login.setModal(true);
+    login.exec();
+}
