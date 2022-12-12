@@ -2,7 +2,9 @@
 #define LOGIN_H
 
 #include <QDialog>
-#include "database.h"
+#include "KoneksiDb.hpp"
+#include "homepage.h"
+#include "peminjam.h"
 
 namespace Ui {
 class Login;
@@ -21,7 +23,9 @@ private slots:
 
 private:
     Ui::Login *ui;
-    Database database;
+    KoneksiDb database;
+    HomePage *home;
+    peminjam *pendaftar;
 };
 
 #endif // LOGIN_H

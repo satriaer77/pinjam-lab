@@ -200,7 +200,7 @@ color:black;
      <rect>
       <x>20</x>
       <y>360</y>
-      <width>63</width>
+      <width>211</width>
       <height>20</height>
      </rect>
     </property>
@@ -211,7 +211,7 @@ color:black;
      <string>Status</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignCenter</set>
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
     </property>
    </widget>
   </widget>

@@ -10,9 +10,25 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    daftar.cpp \
+    detailpeminjaman.cpp \
+    homepage.cpp \
+    login.cpp \
+    managementpeminjaman.cpp \
+    peminjam.cpp \
+    permintaan.cpp \
+    suntingpeminjaman.cpp
 
 HEADERS += \
+    daftar.h \
+    detailpeminjaman.h \
+    homepage.h \
+    login.h \
+    managementpeminjaman.h \
+    peminjam.h \
+    permintaan.h \
+    suntingpeminjaman.h \
     KoneksiDb.hpp \
     laboratoriumModel.hpp \
     mainwindow.h
@@ -21,10 +37,20 @@ FORMS += \
     daftarPeminjamanLab.ui \
     login.ui \
     mainwindow.ui \
-    manajemenPeminjaman.ui
+    manajemenPeminjaman.ui \
+    daftar.ui \
+    detailpeminjaman.ui \
+    homepage.ui \
+    login.ui \
+    mainwindow.ui \
+    managementpeminjaman.ui \
+    peminjam.ui \
+    permintaan.ui \
+    suntingpeminjaman.ui
 
 TRANSLATIONS += \
     peminjamanLab_en_GB.ts
+
 CONFIG += lrelease
 CONFIG += embed_translations
 
