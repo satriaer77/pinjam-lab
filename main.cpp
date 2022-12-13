@@ -7,9 +7,9 @@
 #include <QString>
 #include <QVariant>
 #include <QSqlQuery>
-#include "UserModel.hpp"
-#include "laboratoriumModel.hpp"
-#include "peminjamanModel.hpp"
+//#include "UserModel.hpp"
+//#include "laboratoriumModel.hpp"
+//#include "peminjamanModel.hpp"
 
 using namespace std;
 
@@ -29,47 +29,47 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
 
-    User userA;
-    userA.setUsername("jaka");
-    userA.setPassword("jaka123");
+//    User userA;
+//    userA.setUsername("jaka");
+//    userA.setPassword("jaka123");
 
-    UserModel uModel;
+//    UserModel uModel;
 
 //    cout<<uModel.insertUser(userA);
 
-    LaboratoriumModel labMdl;
-    labMdl.getLaboratoriumData();
-    while(labMdl.getData->next())
-    {
-        cout<<labMdl.getData->value(1).toString().toStdString();
-    }
+//    LaboratoriumModel labMdl;
+//    labMdl.getLaboratoriumData();
+//    while(labMdl.getData->next())
+//    {
+//        cout<<labMdl.getData->value(1).toString().toStdString();
+//    }
 
-    Peminjaman pjm;
-//    pjm.setnamaPeminjam("sss");
-//    pjm.setnimPeminjam("32");
-    pjm.setTanggal("2022-02-22");
-//    pjm.setidStatus(2);
+//    Peminjaman pjm;
+////    pjm.setnamaPeminjam("sss");
+////    pjm.setnimPeminjam("32");
+//    pjm.setTanggal("2022-02-22");
+////    pjm.setidStatus(2);
 //    pjm.setidLab(4);
 //    pjm.setjamStart("09:30");
 //    pjm.setjamEnd("12:00");
 //    pjm.setKeperluan("GDSC");
 
-    PeminjamanModel pjmMdl;
+//    PeminjamanModel pjmMdl;
 //    pjmMdl.pinjamLab(pjm);
 
 
 
 //    Edit
 
-    pjm.setnamaPeminjam("George");
-    pjm.setnimPeminjam("21041110043");
-    pjm.setidStatus(2);
-    pjm.setidLab(3);
-    pjm.setjamStart("09:30");
-    pjm.setjamEnd("12:00");
-    pjm.setKeperluan("UTM Competition");
-    pjm.setidPeminjaman(2);
-    pjmMdl.editPinjamLab(pjm);
+//    pjm.setnamaPeminjam("George");
+//    pjm.setnimPeminjam("21041110043");
+//    pjm.setidStatus(2);
+//    pjm.setidLab(3);
+//    pjm.setjamStart("09:30");
+//    pjm.setjamEnd("12:00");
+//    pjm.setKeperluan("UTM Competition");
+//    pjm.setidPeminjaman(2);
+//    pjmMdl.editPinjamLab(pjm);
 
 
     return a.exec();
@@ -82,3 +82,16 @@ int main(int argc, char *argv[])
 //  // resize button
 //  m_button->resize(100,100);
 //}
+#include "mainwindow.h"
+
+#include <QApplication>
+
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.setWindowTitle("Peminjaman Lab");
+    w.show();
+    return a.exec();
+}
+

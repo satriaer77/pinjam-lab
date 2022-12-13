@@ -12,14 +12,14 @@ class KoneksiDb
 public :
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
-    void koneksiDb()
-    {
 
-        this->db.setHostName("localhost");
-        this->db.setDatabaseName("pinjam_lab");
-        this->db.setUserName("root");
-        this->db.setPassword("234iwuope");
-        bool ok = this->db.open();
+    bool koneksiDb()
+    {
+        db.setHostName("localhost");
+        db.setDatabaseName("pinjam_lab");
+        db.setUserName("root");
+        db.setPassword("234iwuope");
+        bool ok = db.open();
 
         if(ok)
         {
@@ -29,6 +29,7 @@ public :
         {
             cout<<"Koneksi Gagal";
         }
+        return ok;
 
     }
 
