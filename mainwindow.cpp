@@ -15,13 +15,7 @@ MainWindow::~MainWindow()
 
 
 
-//    Login login;
-//    login.setModal(true);
-//    login.exec();
 
-
-//void on_formLogin_clicked();
-//void on_peminjam_clicked();
 void MainWindow::on_formLogin_clicked()
 {
     close();

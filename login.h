@@ -2,7 +2,7 @@
 #define LOGIN_H
 
 #include <QDialog>
-#include "KoneksiDb.hpp"
+#include "database.h"
 #include "homepage.h"
 #include "peminjam.h"
 
@@ -23,7 +23,7 @@ private slots:
 
 private:
     Ui::Login *ui;
-    KoneksiDb database;
+    Database database;
     HomePage *home;
     peminjam *pendaftar;
 };

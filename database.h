@@ -12,8 +12,8 @@ public:
         db = QSqlDatabase::addDatabase("QMYSQL");
         db.setHostName("localhost");
         db.setUserName("root");
-        db.setPassword("");
-        db.setDatabaseName("peminjaman_lab");
+        db.setPassword("234iwuope");
+        db.setDatabaseName("pinjam_lab");
         bool ok = db.open();
         return ok;
     }

@@ -7,13 +7,13 @@ Login::Login(QWidget *parent) :
     ui(new Ui::Login)
 {
     ui->setupUi(this);
-    bool ok = database.koneksiDb();
+    bool ok = database.koneksiOpen();
     if (ok){
         ui->labelLogin->setText("Conected");
     }else{
         ui->labelLogin->setText("Not Conected");
     }
-//    database.koneksiClose();
+    database.koneksiClose();
 
 }
 
@@ -24,7 +24,7 @@ Login::~Login()
 
 void Login::on_btnLogin_clicked()
 {
-    bool ok = database.koneksiDb();
+    bool ok = database.koneksiOpen();
     if (ok){
         QString username = ui->username->text();
         QString password = ui->password->text();
@@ -56,6 +56,6 @@ void Login::on_btnLogin_clicked()
         QMessageBox::information(this, "Failed", "Database Disconnect");
     }
 
-//    database.koneksiClose();
+    database.koneksiClose();
 }
 

@@ -31,6 +31,7 @@ HEADERS += \
     suntingpeminjaman.h \
     KoneksiDb.hpp \
     laboratoriumModel.hpp \
+    database.h \
     mainwindow.h
 
 FORMS += \
