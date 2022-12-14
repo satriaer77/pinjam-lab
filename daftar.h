@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include "database.h"
+#include "Peminjaman.hpp"
+#include "peminjamanModel.hpp"
 
 namespace Ui {
 class daftar;
@@ -26,6 +28,8 @@ private slots:
 private:
     Ui::daftar *ui;
     Database database;
+    Peminjaman peminjaman;
+    PeminjamanModel pinjamModel;
 
 };
 

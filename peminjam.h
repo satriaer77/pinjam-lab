@@ -5,6 +5,7 @@
 #include "daftar.h"
 #include "database.h"
 
+
 namespace Ui {
 class peminjam;
 }
@@ -21,6 +22,10 @@ private slots:
     void on_booking_clicked();
 
     void on_booking_2_clicked();
+
+    void on_daftarRequest_clicked();
+
+    void on_pushButton_clicked();
 
 private:
     Ui::peminjam *ui;

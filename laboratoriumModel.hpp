@@ -2,8 +2,8 @@
 #define LABORATORIUMMODEL_HPP
 
 #include <iostream>
-#include "KoneksiDb.hpp"
-#include <QSqlQuery>
+#include "database.h"
+
 #include "Laboratorium.hpp"
 using namespace std;
 
@@ -11,14 +11,26 @@ using namespace std;
 class LaboratoriumModel
 {
 public:
-    QSqlQuery *getData;
+    QSqlQuery *laboratorium;
     void getLaboratoriumData()
     {
-        KoneksiDb koneksi;
-        koneksi.koneksiDb();
-        getData = new QSqlQuery(koneksi.db);
-        getData->exec("SELECT * FROM laboratorium");
+        Database koneksi;
+        koneksi.koneksiOpen();
+        laboratorium = new QSqlQuery(koneksi.db);
+        laboratorium->exec("SELECT * FROM laboratorium");
+        koneksi.koneksiClose();
     }
+
+    void getAllLaboratoriumNama()
+    {
+        Database koneksi;
+        koneksi.koneksiOpen();
+        laboratorium = new QSqlQuery(koneksi.db);
+        laboratorium->exec("SELECT nama_lab FROM laboratorium");
+        koneksi.koneksiClose();
+    }
+
+
 
 
 };

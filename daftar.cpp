@@ -9,14 +9,11 @@ daftar::daftar(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowTitle("Daftar Peminjaman Lab");
-    bool ok = database.koneksiOpen();
+    database.koneksiOpen();
 
-    if (ok){
-
-        QSqlQueryModel *model = new QSqlQueryModel(ui->lab);
-        model->setQuery("SELECT nama_lab FROM lab");
-        ui->lab->setModel(model);
-    }
+    QSqlQueryModel *model = new QSqlQueryModel(ui->lab);
+    model->setQuery("SELECT nama_lab FROM laboratorium");
+    ui->lab->setModel(model);
 }
 
 daftar::~daftar()
@@ -32,7 +29,7 @@ void daftar::on_submit_clicked()
     if (ok){
 
         QSqlQueryModel *model = new QSqlQueryModel(ui->lab);
-        model->setQuery("SELECT nama_lab FROM lab");
+        model->setQuery("SELECT nama_lab FROM laboratorium");
         ui->lab->setModel(model);
 
         QString nim = ui->nim->text();
@@ -43,23 +40,23 @@ void daftar::on_submit_clicked()
         int lab = ui->lab->currentIndex();
         QString ket = ui->ket->toPlainText();
 
-        if (!(nim == "" && nama == "" && ket == "")){
-             QSqlQuery query;
-             query.prepare("INSERT INTO peminjaman(id_status, id_lab, nama_peminjam, nim_peminjam, tanggal, jam_start, jam_end, keperluan) VALUES (:id_status, :id_lab, :nama_peminjam, :nim_peminjam, :tanggal, :jam_start, :jam_end, :keperluan)");
-             query.bindValue(":id_status", 1);
-             query.bindValue(":id_lab", lab + 1);
-             query.bindValue(":nama_peminjam", nama);
-             query.bindValue(":nim_peminjam", nim);
-             query.bindValue(":tanggal", QDate::fromString(tanggal, "dd/MM/yyyy"));
-             query.bindValue(":jam_start", start);
-             query.bindValue(":jam_end", end);
-             query.bindValue(":keperluan", ket);
+        if (!(nama == "" && nim == "" && ket == "")){
+           QSqlQuery query;
+           query.prepare("INSERT INTO peminjaman(id_status, id_lab, nama_peminjam, nim_peminjam, tanggal, jam_start, jam_end, keperluan) VALUES (:id_status, :id_lab, :nama_peminjam, :nim_peminjam, :tanggal, :jam_start, :jam_end, :keperluan)");
+           query.bindValue(":id_status", 1);
+           query.bindValue(":id_lab", lab + 1);
+           query.bindValue(":nama_peminjam", nama);
+           query.bindValue(":nim_peminjam", nim);
+           query.bindValue(":tanggal", QDate::fromString(tanggal, "yyyy-mm-dd"));
+           query.bindValue(":jam_start", start);
+           query.bindValue(":jam_end", end);
+           query.bindValue(":keperluan", ket);
              if (query.exec()){
-                 QMessageBox::information(this, "Success", "Peminajam Berhasil Diajukan");
+                 QMessageBox::information(this, "Success", "Peminjama Berhasil Diajukan");
                  close();
                  database.koneksiClose();
              }else {
-                  QMessageBox::information(this, "Failed", "Peminajam Gagal Diajukan");
+                  QMessageBox::information(this, "Failed", "Peminjama Gagal Diajukan");
              }
         }else {
             QMessageBox::information(this, "Failed", "Data Wajib Dilengkapi");
@@ -76,7 +73,7 @@ void daftar::on_pushButton_clicked()
     bool ok = database.koneksiOpen();
     if (ok){
         QSqlQueryModel *model = new QSqlQueryModel(ui->lab);
-        model->setQuery("SELECT nama_lab FROM lab");
+        model->setQuery("SELECT nama_lab FROM laboratorium");
         ui->lab->setModel(model);
     }
 }

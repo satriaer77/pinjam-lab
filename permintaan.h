@@ -2,6 +2,8 @@
 #define PERMINTAAN_H
 
 #include <QDialog>
+#include "database.h"
+#include <QSqlQuery>
 
 namespace Ui {
 class permintaan;
@@ -15,8 +17,14 @@ public:
     explicit permintaan(QWidget *parent = nullptr);
     ~permintaan();
 
+
+
+private slots:
+    void on_pushButton_2_clicked();
+
 private:
     Ui::permintaan *ui;
+    Database database;
 };
 
 #endif // PERMINTAAN_H

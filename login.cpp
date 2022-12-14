@@ -1,11 +1,13 @@
 #include "login.h"
 #include "ui_login.h"
 #include "homepage.h"
+#include "permintaan.h"
 
 Login::Login(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Login)
 {
+
     ui->setupUi(this);
     bool ok = database.koneksiOpen();
     if (ok){
@@ -44,9 +46,9 @@ void Login::on_btnLogin_clicked()
             if (count == 1 && passwordAdmin == password){
                     QMessageBox::information(this, "Success", "Login Success");
                     close();
-                    HomePage home;
-                    home.setModal(true);
-                    home.exec();
+                    permintaan *perminta;
+                    perminta = new permintaan(this);
+                    perminta->show();
 
             }else {
                 QMessageBox::information(this, "Failed", "Login Gagal");

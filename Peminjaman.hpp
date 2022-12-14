@@ -1,14 +1,15 @@
 #ifndef PEMINJAMAN_HPP
 #define PEMINJAMAN_HPP
 #include <iostream>
+#include <QString>
+#include <QDate>
 using namespace std;
 
 class Peminjaman
 {
 private :
     int idPeminjaman,idStatus,idLab;
-    string namaPeminjam,nimPeminjam, keperluan, tanggal, jamStart,jamEnd;
-
+    QString namaPeminjam,nimPeminjam, keperluan, jamStart,jamEnd,tanggal;
 
 public :
     int getidPeminjaman()
@@ -23,27 +24,27 @@ public :
     {
         return this->idLab;
     }
-    string getnamaPeminjam()
+    QString getnamaPeminjam()
     {
         return this->namaPeminjam;
     }
-    string getnimPeminjam()
+    QString getnimPeminjam()
     {
         return this->nimPeminjam;
     }
-    string getKeperluan()
+    QString getKeperluan()
     {
         return this->keperluan;
     }
-    string getTanggal()
+    QString getTanggal()
     {
         return this->tanggal;
     }
-    string getjamStart()
+    QString getjamStart()
     {
         return this->jamStart;
     }
-    string getjamEnd()
+    QString getjamEnd()
     {
         return this->jamEnd;
     }
@@ -63,27 +64,27 @@ public :
     {
         this->idLab = idLb;
     }
-    void setnamaPeminjam(string namaPjm)
+    void setnamaPeminjam(QString namaPjm)
     {
         this->namaPeminjam = namaPjm;
     }
-    void setnimPeminjam(string nimPjm)
+    void setnimPeminjam(QString nimPjm)
     {
         this->nimPeminjam = nimPjm;
     }
-    void setTanggal(string tgl)
+    void setTanggal(QString tgl)
     {
         this->tanggal = tgl;
     }
-    void setjamStart(string jamSt)
+    void setjamStart(QString jamSt)
     {
         this->jamStart = jamSt;
     }
-    void setjamEnd(string jamEd)
+    void setjamEnd(QString jamEd)
     {
         this->jamEnd = jamEd;
     }
-    void setKeperluan(string perlu)
+    void setKeperluan(QString perlu)
     {
         this->keperluan = perlu;
     }

@@ -2,7 +2,7 @@
 #define USERMODEL_HPP
 
 #include <iostream>
-#include "KoneksiDb.hpp"
+#include "database.h"
 #include <QSqlQuery>
 #include "User.hpp"
 #include <QVariant>
@@ -14,23 +14,23 @@ class UserModel
 public :
     bool insertUser(User user)
     {
-         KoneksiDb koneksi;
-         koneksi.koneksiDb();
+         Database koneksi;
+         koneksi.koneksiOpen();
          auto query = new QSqlQuery(koneksi.db);
          QString username = QString::fromStdString(user.getUsername());
          QString password = QString::fromStdString(user.getPassword());
 
          bool queryInsert = query->exec("INSERT INTO user(username,password) VALUES('"+username+"','"+password+"')");
 
-         koneksi.closeKoneksi();
+         koneksi.koneksiClose();
          return queryInsert;
 
     }
 
     bool updateUser(User user)
     {
-        KoneksiDb koneksi;
-        koneksi.koneksiDb();
+        Database koneksi;
+        koneksi.koneksiOpen();
         auto query = new QSqlQuery(koneksi.db);
         QString username = QString::fromStdString(user.getUsername());
         QString password = QString::fromStdString(user.getPassword());
@@ -38,6 +38,7 @@ public :
 
         bool queryUpdate = query->exec("UPDATE user SET username='"+username+"' WHERE id_user="+user.getidUser()+" ");
 
+        koneksi.koneksiClose();
         return queryUpdate;
     }
 

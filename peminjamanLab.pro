@@ -10,11 +10,11 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    laboratorium.cpp \
     daftar.cpp \
     detailpeminjaman.cpp \
     homepage.cpp \
     login.cpp \
+    mainwindow.cpp \
     managementpeminjaman.cpp \
     peminjam.cpp \
     permintaan.cpp \
@@ -31,8 +31,6 @@ HEADERS += \
     daftar.h \
     detailpeminjaman.h \
     #Model
-    Auth.hpp \
-    KoneksiDb.hpp \
     database.h \
     laboratoriumModel.hpp \
     peminjamanModel.hpp \
@@ -42,10 +40,8 @@ HEADERS += \
     UserModel.hpp
 
 FORMS += \
-    daftarPeminjamanLab.ui \
     login.ui \
     mainwindow.ui \
-    manajemenPeminjaman.ui \
     daftar.ui \
     detailpeminjaman.ui \
     homepage.ui \
