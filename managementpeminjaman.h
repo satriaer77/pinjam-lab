@@ -2,6 +2,7 @@
 #define MANAGEMENTPEMINJAMAN_H
 
 #include <QDialog>
+#include "database.h"
 
 namespace Ui {
 class ManagementPeminjaman;
@@ -15,8 +16,16 @@ public:
     explicit ManagementPeminjaman(QWidget *parent = nullptr);
     ~ManagementPeminjaman();
 
+private slots:
+    void on_pushButton_clicked();
+
+    void on_pushButton_4_clicked();
+
+    void on_pushButton_3_clicked();
+
 private:
     Ui::ManagementPeminjaman *ui;
+    Database database;
 };
 
 #endif // MANAGEMENTPEMINJAMAN_H

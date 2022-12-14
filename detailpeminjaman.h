@@ -2,7 +2,7 @@
 #define DETAILPEMINJAMAN_H
 
 #include <QDialog>
-
+#include "database.h"
 namespace Ui {
 class DetailPeminjaman;
 }
@@ -15,8 +15,12 @@ public:
     explicit DetailPeminjaman(QWidget *parent = nullptr);
     ~DetailPeminjaman();
 
+private slots:
+    void on_pushButton_2_clicked();
+
 private:
     Ui::DetailPeminjaman *ui;
+    Database database;
 };
 
 #endif // DETAILPEMINJAMAN_H

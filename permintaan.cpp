@@ -18,7 +18,7 @@ permintaan::permintaan(QWidget *parent) :
     ui->filterLab->setModel(model);
 
     QSqlQuery* qry = new QSqlQuery(database.db);
-    qry->prepare("select * from peminjaman WHERE id_status = 2");
+    qry->prepare("select * from peminjaman WHERE id_status=2");
 
     if(!qry->exec())
         qDebug() << qry->lastError().text() << qry->lastQuery();
@@ -40,6 +40,10 @@ permintaan::~permintaan()
 
 void permintaan::on_pushButton_2_clicked()
 {
+    close();
+    ManagementPeminjaman *mngpjm;
+    mngpjm = new ManagementPeminjaman(this);
+    mngpjm->show();
 
 }
 
